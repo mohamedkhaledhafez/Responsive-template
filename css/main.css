@@ -36,7 +36,7 @@ body {
     left: -200px;
     background-color: #FFF;
     width: 200px;
-    z-index: 1000;
+    z-index: 1100;
     min-height: 100vh;
     transition: .3s;
     border: 1px solid #EEE;
@@ -50,7 +50,6 @@ body {
     right: -30px;
     top: 50px;
     background-color: #FFF;
- 
     text-align: center;
     cursor: pointer;
 
@@ -76,17 +75,18 @@ body {
     font-size: 14px;
 }
 
-.setting-box .option-box .colors-list {
+.setting-box .option-box .colors-list,
+.setting-box .option-box .choose-background {
     list-style: none;
     text-align: center;
     padding: 0;
     margin: 10px 0 0;
 }
 
-.setting-box .option-box .colors-list li {
+.setting-box .option-box .colors-list li,
+.setting-box .option-box .choose-background li {
     width: 25px;
     height: 25px;
-    background-color: #333;
     border-radius: 50%;
     cursor: pointer;
     display: inline-block;
@@ -136,6 +136,18 @@ body {
     opacity: 1;
 } 
 
+
+.setting-box .option-box .choose-background li.active {
+    border-color: #FFF;
+}
+
+
+
+.setting-box .option-box .choose-background li {
+    background-color: var(--main--color);
+    color: #FFF;
+}
+
 .setting-box .reset-options {
     background-color: #F00;
     width: 178px;
@@ -149,6 +161,7 @@ body {
     border: none;
 
 }
+
 
 
 /* End setting box */
@@ -250,6 +263,12 @@ body {
     font-weight: bold;
     width: 300px;
     padding: 15px;
+    color: #0090ff;
+    font-size: 20px;
+}
+
+.header-area .logo span {
+    color: #98d2ff;
 }
 
 .header-area .links-container {
@@ -374,8 +393,12 @@ body {
 
     .header-area .links.open li {
         margin: 10px;
-        display: block;
-    
+        display: block;    
+    }
+
+    .header-area .links.open li:hover {
+        border-bottom: 1px solid var(--main--color);
+        cursor: pointer;
     }
     
     .header-area .links.open li a {

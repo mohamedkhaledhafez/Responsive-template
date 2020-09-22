@@ -1,4 +1,4 @@
-/////////// check if there is local storage color option (local storage is not Empty)
+///////////////////////////////////////////////// check if there is local storage color option (local storage is not Empty)
 let mainColors = localStorage.getItem('color_option');
 if (mainColors !== null) {
     //console.log("oooooopsssss");
@@ -23,7 +23,7 @@ if (mainColors !== null) {
 
 
 
-// Round Background Option :
+///////////////////////////////////////////////////////////////// Round Background Option :
 let backgroundOption = true;
 
 // Variable to control the background interval function :
@@ -61,7 +61,7 @@ if (backgroundLocalItem !== null) {
 
 }
 
-////////////////////////////////////////////////// Toggle spin class on setting icon (fa-gear):
+//////////////////////////////////////////////////////////////////// Toggle spin class on setting icon (fa-gear):
 document.querySelector(".toggle-setting .setting-icon").onclick = function() {
     
     // Toggle class fa-spin for rotation on the element itself
@@ -76,7 +76,7 @@ document.querySelector(".toggle-setting .setting-icon").onclick = function() {
 
 
 
-///// Click anywhere outside Setting icon and toggle the box : 
+///////////////////////////////////////////////////// Click anywhere outside Setting icon and toggle the box : 
 
 let toggleButton = document.querySelector(".setting-box .setting-icon");
 
@@ -115,11 +115,12 @@ document.addEventListener('click', (e) => {
 
 boxes.onclick = function(e) {
 
+    // Stop Propagation :
     e.stopPropagation();
 
 };
 
-////////////////////////////////////////////////  Switch page colors from setting :
+//////////////////////////////////////////////////////////////////////  Switch page colors from setting :
 
 const colorsLi = document.querySelectorAll(".colors-list li");
     
@@ -131,12 +132,12 @@ li.addEventListener("click", (event) => {
 
 // console.log(event.target.dataset.color);
     // Set color on root 
-    document.documentElement.style.setProperty('--main--color', event.target.dataset.color)
+    document.documentElement.style.setProperty('--main--color', event.target.dataset.color);
 
     // set color on local storage :
     localStorage.setItem("color_option", event.target.dataset.color);
     
-  /*   // Remove active class from all children :
+  /*   // Remove active class from all children //// Ther is a function handleActive() for that :
     event.target.parentElement.querySelectorAll(".active").forEach(element => {
         
         element.classList.remove("active");
@@ -152,7 +153,7 @@ li.addEventListener("click", (event) => {
 
 
 
-////////////////////////////////////////////////  Switch Background from setting :
+//////////////////////////////////////////////////////////////////  Switch Background from setting :
 
 const randomBackgroundEl = document.querySelectorAll(".random-backgrounds span");
     
@@ -195,8 +196,90 @@ span.addEventListener("click", (event) => {
 
 });
 
-///////////////////////////////////////////////// This function for toggle the background image every 3 seconds
+//////////////////////////////////////////////////////// Choose Background //////////////////////////////////////////
 
+ let firstOption = document.getElementById('first'),
+     secondOption = document.getElementById('second'),
+     thirdOption = document.getElementById('third'),
+     forthOption = document.getElementById('forth'),
+     fithOption = document.getElementById('fifth');
+    
+     firstOption.addEventListener('click', (e) => {
+
+        if (backgroundOption === false ) {
+            let  firstImage = document.getElementById('choose-land');
+
+            firstImage.style.backgroundImage = 'url(img/10.jpg)'; 
+    
+        } else {
+
+            return null;
+        }
+
+        handleActive(e);
+     });
+ 
+     secondOption.addEventListener('click', (e) => {
+
+        if (backgroundOption === false ) {
+            let  secondImage = document.getElementById('choose-land');
+
+            secondImage.style.backgroundImage = 'url(img/11.jpg)'; 
+    
+        } else {
+
+            return null;
+        }
+
+        handleActive(e);
+     });
+
+     thirdOption.addEventListener('click', (e) => {
+
+        if (backgroundOption === false ) {
+            let  thirdImage = document.getElementById('choose-land');
+
+            thirdImage.style.backgroundImage = 'url(img/3.jpg)'; 
+    
+        } else {
+
+            return null;
+        }
+        
+        handleActive(e);
+     });
+
+     forthOption.addEventListener('click', (e) => {
+
+        if (backgroundOption === false ) {
+            let  forthImage = document.getElementById('choose-land');
+
+            forthImage.style.backgroundImage = 'url(img/4.jpg)'; 
+    
+        } else {
+
+            return null;
+        }
+
+        handleActive(e);
+     });
+ 
+     fithOption.addEventListener('click', (e) => {
+
+        if (backgroundOption === false ) {
+            let  fifthImage = document.getElementById('choose-land');
+
+            fifthImage.style.backgroundImage = 'url(img/about-us.jpg)'; 
+    
+        } else {
+
+            return null;
+        }
+
+        handleActive(e);
+     });
+ 
+///////////////////////////////////////////////////////// This function for toggle the background image every 1 second
 
 
 // Select Landing Page :
@@ -260,8 +343,7 @@ window.onscroll = function() {
 
 
 
-
-//////////////////////////////// Creat Popup with the Image /////////////////////////////////////////////
+///////////////////////////////////////////////////// Creat Popup with the Image /////////////////////////////////////////////
 
 
 let ourGallary = document.querySelectorAll(".gallary img");
@@ -333,7 +415,7 @@ ourGallary.forEach(img => {
 });
 
 
-////// Close the Popup : 
+///////////////////////////////////////////////////////////////// Close the Popup : 
 
 document.addEventListener("click", (e) => {
 
@@ -424,7 +506,7 @@ scrollToSomeWhere(allBullets);
 scrollToSomeWhere(allLinks);
 
 
-////////////////////// Handle active class state ///////////////////////////
+/////////////////////////////////////////////////////// Handle Active class state ///////////////////////////
 
 function handleActive (e) {
     
@@ -441,7 +523,7 @@ function handleActive (e) {
 
 
 
-///////////////////////// Show / Hide Bullets Option ////////////////////////////////////
+//////////////////////////////////////////////////// Show / Hide Bullets Option ////////////////////////////////////
 
 // handle the spans that hold the yes and no on bullets option :
 let bulletSpan = document.querySelectorAll(".bullets-option span");
@@ -468,20 +550,14 @@ if (bulletLocal !== null) {
         document.querySelector(".bullets-option .yes").classList.add("active");
 
 
-
     } else {
 
         bulletsContainer.style.display = "none";
 
-
         document.querySelector(".bullets-option .no").classList.add("active");
-
-
 
     }
 // console.log("NOT EMPTY");
-
-
 
 }
 
@@ -502,19 +578,16 @@ bulletSpan.forEach(span => {
 
             localStorage.setItem("bullets_option", "none");
 
-
         }
 
         handleActive(e);
-
-        
 
     });
 });
 
 
 
-///////////////////////////////// Reset Button ///////////////////////////////
+///////////////////////////////////////////////////////////////// Reset Button ///////////////////////////////
 
 document.querySelector(".reset-options").onclick = function () {
 
@@ -532,7 +605,7 @@ document.querySelector(".reset-options").onclick = function () {
 
 
 
-////////////////////// Toggle menu button /////////////////////////////////
+///////////////////////////////////////////////////////////// Toggle menu button /////////////////////////////////
 
 let toggleBtn = document.querySelector(".header-area .toggle-menu");
 
@@ -553,7 +626,7 @@ toggleBtn.onclick = function(e) {
 };
 
 
-///// Click anywhere outside menu and toggle the button : 
+//////////////////////////////////////////////////////////////// Click anywhere outside menu and toggle the button : 
 
 document.addEventListener('click', (e) => {
 
