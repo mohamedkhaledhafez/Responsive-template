@@ -378,9 +378,9 @@ body {
     padding: 10px;
     display: block;
     position: absolute;
-    left: 0;
+    right: 0;
     top: 50px;
-    width: 100%;
+    width: 50%;
     text-align: right;
     border-radius: 4px;
     -webkit-border-radius: 4px;
